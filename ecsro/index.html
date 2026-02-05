@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Görsel Galeri</title>
+
+<style>
+body{
+    margin:0;
+    background:#070709;
+    color:#eaeaea;
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    max-width: 1500px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* GRID GALERİ */
+.bbCodeBlock-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 22px;
+}
+
+/* KART TASARIMI */
+.bbImageWrapper{
+    background:#0b0b0f;
+    padding: 14px;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.03);
+    transition: transform .2s ease, box-shadow .2s ease;
+    text-align:center;
+    cursor:pointer;
+}
+
+.bbImageWrapper:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.1);
+}
+
+/* RESİMLER */
+.bbImage{
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display:block;
+}
+
+/* LIGHTBOX (TIKLAYINCA BÜYÜTME) */
+#lightbox{
+    position: fixed;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+#lightbox img{
+    max-width: 92%;
+    max-height: 92%;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.08);
+}
+
+#lightbox.active{
+    display:flex;
+}
+
+/* KAPATMA YAZISI */
+#lightbox::after{
+    content:"Kapatmak için herhangi bir yere tıkla";
+    position:absolute;
+    bottom:20px;
+    color:#aaa;
+    font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="bbCodeBlock-content">
+
+<!-- SENİN GÖRSELLERİN (AYNEN) -->
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181591037-png.40416/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181683263-png.40417/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181469587-png.40415/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181406337-png.40414/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181282750-png.40412/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181259662-png.40411/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181204325-png.40410/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181194197-png.40409/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181177143-png.40408/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770180894192-png.40402/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770180932072-png.40403/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1770181335282-png.40413/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/1-gif.40405/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/2-gif.40406/" class="bbImage">
+</div>
+
+<div class="bbImageWrapper">
+<img src="https://www.vsro.org/attachments/3-gif.40407/" class="bbImage">
+</div>
+
+</div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="this.classList.remove('active')">
+    <img id="lightbox-img">
+</div>
+
+<script>
+document.querySelectorAll('.bbImage').forEach(img=>{
+    img.addEventListener('click', function(){
+        document.getElementById('lightbox-img').src = this.src;
+        document.getElementById('lightbox').classList.add('active');
+    });
+});
+</script>
+
+</body>
+</html>
